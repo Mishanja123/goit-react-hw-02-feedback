@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import css from './Statistics.module.css'
+
 export const Statistics = ({good, neutral, bad, total, positivePercentage}) => {
     const statisticArray = [
         { statItem: good, title: 'Good' },
@@ -11,7 +12,7 @@ export const Statistics = ({good, neutral, bad, total, positivePercentage}) => {
 
     return (
         <ul className={css.statisticList}>
-            {statisticArray.map(({statItem, title}) => (
+            {statisticArray.slice(0, -2).map(({statItem, title}) => (
             <li className={css.statisticItem} key={title}>
                 <p className={css.statisticP}>
                     {title}:{' '}
@@ -22,6 +23,19 @@ export const Statistics = ({good, neutral, bad, total, positivePercentage}) => {
                 </p>
             </li>
             ))}
+
+            <div className={css.borderContainer}>
+                {statisticArray.slice(-2).map(({ statItem, title }) => ( 
+                <li className={css.statisticItemL} key={title}>
+                    <p className={css.statisticP}>
+                    {title}:{' '}
+                    <span className={css.statisticSpan}>
+                    {title !== 'Positive feedbacks' ? statItem : positivePercentage + '%'}
+                    </span>
+                    </p>
+                </li>
+                ))}
+            </div>
         </ul>
 
     );

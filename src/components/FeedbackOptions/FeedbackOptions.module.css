@@ -6,12 +6,17 @@
     padding: 0;
 }
 .btn {
-    background-color: #E1CFC2;
+    background-color: #2E8B57;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
-    border-radius: 5px;
-    padding: 7px 10px;
 }
 .btn:hover {
+    background-color: #04AA6D;
     box-shadow: 1px 2px 10px 0px rgba(0,0,0,0.3);
-
 }
+/* . {
+    background-color: #ff3333;
+} */
